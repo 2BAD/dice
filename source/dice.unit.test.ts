@@ -1,5 +1,6 @@
-import * as parser from '~/parser'
 import { roll } from '~/dice'
+import * as parser from '~/parser'
+import * as random from '~/random/native'
 
 describe('roll', () => {
   afterEach(() => {
@@ -15,13 +16,19 @@ describe('roll', () => {
     expect(spy).toHaveBeenCalledWith(shape)
   })
 
-  it('should return an array of numbers when given a valid dice string with multiple dice', () => {
+  it('should return a number when given a valid dice string with multiple dice', () => {
     const shape = '2d10'
-    const result = roll(shape) as number[]
-    expect(Array.isArray(result)).toBe(true)
-    expect(result.length).toBe(2)
-    expect(typeof result[0]).toBe('number')
-    expect(typeof result[1]).toBe('number')
+    expect(typeof roll(shape)).toBe('number')
+  })
+
+  it('should correctly sum the rolls', () => {
+    // mock the rand function to return known values
+    const spy = vi.spyOn(random, 'rand').mockReturnValueOnce(3).mockReturnValueOnce(5)
+
+    const result = roll('2d6')
+
+    expect(result).toEqual(8)
+    expect(spy).toHaveBeenCalledTimes(2)
   })
 
   it('should throw an error when given an invalid dice string', () => {
