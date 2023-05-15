@@ -1,0 +1,85 @@
+{
+  "name": "@2bad/dice",
+  "version": "0.0.1",
+  "description": "Utility library to compute dice rolls",
+  "keywords": [
+    "dice",
+    "roll",
+    "dnd",
+    "rng"
+  ],
+  "homepage": "https://github.com/2BAD/dice#readme",
+  "bugs": {
+    "url": "https://github.com/2BAD/dice/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/2BAD/dice.git"
+  },
+  "license": "MIT",
+  "author": "2BAD (https://github.com/2BAD)",
+  "contributors": [
+    {
+      "name": "Jason Hyde",
+      "email": "github@2bad.me",
+      "url": "https://github.com/mrhyde"
+    }
+  ],
+  "type": "module",
+  "exports": "./build/index.js",
+  "typings": "./build/index.d.ts",
+  "files": [
+    "build"
+  ],
+  "scripts": {
+    "build": "run-s compile fix-alias",
+    "clean": "rimraf build",
+    "compile": "tsc --project tsconfig.build.json",
+    "fix-alias": "tsc-alias -p tsconfig.build.json",
+    "format:check": "prettier --check source/**/*.ts",
+    "format:fix": "prettier --write source/**/*.ts",
+    "lint": "eslint . --ext .ts",
+    "lint:fix": "run-s \"lint -- --fix\"",
+    "prepublishOnly": "run-s clean build",
+    "preversion": "run-s clean lint test build",
+    "test": "vitest run",
+    "test:integration": "vitest run integration --coverage",
+    "test:unit": "vitest run unit --coverage"
+  },
+  "prettier": {
+    "printWidth": 120,
+    "semi": false,
+    "singleQuote": true,
+    "trailingComma": "none"
+  },
+  "dependencies": {
+    "pure-rand": "6.0.2"
+  },
+  "devDependencies": {
+    "@2bad/tsconfig": "1.5.1",
+    "@types/node": "20.1.0",
+    "@typescript-eslint/eslint-plugin": "5.59.5",
+    "@typescript-eslint/parser": "5.59.5",
+    "@vitest/coverage-c8": "0.31.0",
+    "eslint": "8.40.0",
+    "eslint-config-prettier": "8.8.0",
+    "eslint-config-standard-with-typescript": "34.0.1",
+    "eslint-import-resolver-typescript": "3.5.5",
+    "eslint-plugin-import": "2.27.5",
+    "eslint-plugin-n": "15.7.0",
+    "eslint-plugin-prettier": "4.2.1",
+    "eslint-plugin-promise": "6.1.1",
+    "npm-run-all": "4.1.5",
+    "prettier": "2.8.8",
+    "rimraf": "5.0.0",
+    "tsc-alias": "1.8.6",
+    "typescript": "5.0.4",
+    "vitest": "0.31.0"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "volta": {
+    "node": "19.9.0"
+  }
+}

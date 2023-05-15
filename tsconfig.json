@@ -1,0 +1,12 @@
+{
+  "extends": "@2bad/tsconfig",
+  "compilerOptions": {
+    "outDir": "build",
+    "baseUrl": "source",
+    "declaration": true,
+    "types": ["vitest/globals"],
+    "paths": {
+      "~/*": ["./*"]
+    }
+  }
+}
