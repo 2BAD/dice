@@ -6,7 +6,7 @@
 [![Code coverage](https://img.shields.io/codecov/c/github/2BAD/dice)](https://codecov.io/gh/2BAD/dice)
 [![Written in TypeScript](https://img.shields.io/github/languages/top/2BAD/dice)](https://github.com/2BAD/dice/search?l=typescript)
 
-TypeScript library that allows you to simulate rolling different types and quantities of dice. You can easily perform calculations and generate random numbers for use in games, simulations, and more.
+This is a TypeScript library designed to facilitate the computation of dice rolls and random number generation. With support for various types and quantities of dice, it allows users to easily perform calculations for use in games, simulations, and other applications. Its RPG dice notation parsing capabilities allow users to roll based on specific game rules (e.g., `1d4`, `d6`, `2d6+5`, `1d20-1`). Whether building a character generator for a tabletop RPG or developing a gaming application, this utility library is an essential tool for any developer.
 
 ## Install
 
