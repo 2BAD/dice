@@ -1,12 +1,15 @@
 {
   "name": "@2bad/dice",
   "version": "0.0.3",
-  "description": "Utility library to compute dice rolls",
+  "description": "Compute dice rolls according to RPG dice notation (e.g. 1d4, d6, 2d6+5, 1d20-1)",
   "keywords": [
+    "d20",
     "dice",
-    "roll",
     "dnd",
-    "rng"
+    "dnd5e",
+    "rng",
+    "roll",
+    "rpg"
   ],
   "homepage": "https://github.com/2BAD/dice#readme",
   "bugs": {
@@ -38,13 +41,13 @@
     "fix-alias": "tsc-alias -p tsconfig.build.json",
     "format:check": "prettier --check source/**/*.ts",
     "format:fix": "prettier --write source/**/*.ts",
-    "lint": "eslint . --ext .ts",
     "lint:fix": "run-s \"lint -- --fix\"",
+    "lint": "eslint . --ext .ts",
     "prepublishOnly": "run-s clean build",
     "preversion": "run-s clean lint test build",
-    "test": "vitest run",
     "test:integration": "vitest run integration --coverage",
-    "test:unit": "vitest run unit --coverage"
+    "test:unit": "vitest run unit --coverage",
+    "test": "vitest run"
   },
   "prettier": {
     "printWidth": 120,
