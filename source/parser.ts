@@ -2,6 +2,7 @@ export type Dice = {
   sides: number
   dices: number
   modifier: number
+  separator: 'd' | 'z'
 }
 
 /**
@@ -12,7 +13,7 @@ export type Dice = {
  * @throws Throws an error when it is not possible to parse the dice shape string.
  */
 
-const regex = /^(?:(?<dices>\d+)|)(?<separator>d)(?<sides>[1-9]\d*)(?<modifiers>(?:[-+]\d+)*)?$/i
+const regex = /^(?:(?<dices>\d+)|)(?<separator>d|z)(?<sides>[1-9]\d*)(?<modifiers>(?:[-+]\d+)*)?$/i
 
 export const parse = (shape: string): Dice => {
   const match = regex.exec(shape.toLowerCase())
@@ -20,6 +21,7 @@ export const parse = (shape: string): Dice => {
     throw new Error(`Invalid dice shape '${shape}'`)
   }
 
+  const { separator } = match.groups as { separator: 'd' | 'z' }
   const { dices: dicesStr, sides: sidesStr } = match.groups
   const dices = parseInt(dicesStr ?? '1')
   const sides = parseInt(sidesStr ?? '')
@@ -27,5 +29,5 @@ export const parse = (shape: string): Dice => {
   const modifiersStr = match.groups['modifiers'] ?? ''
   const modifier = modifiersStr.match(/([-+]\d+)/g)?.reduce((a, c) => a + parseInt(c), 0) ?? 0
 
-  return { dices, sides, modifier }
+  return { dices, sides, modifier, separator }
 }

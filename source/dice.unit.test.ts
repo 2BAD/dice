@@ -31,6 +31,15 @@ describe('roll', () => {
     expect(spy).toHaveBeenCalledTimes(2)
   })
 
+  it('should change min value when given `z` as separator', () => {
+    // mock the rand function to return known values
+    const spy = vi.spyOn(random, 'rand')
+    const shape = '3z8'
+
+    expect(typeof roll(shape)).toBe('number')
+    expect(spy).toHaveBeenCalledWith(7, 0)
+  })
+
   it('should throw an error when given an invalid dice string', () => {
     const shape = 'invalid'
     expect(() => roll(shape)).toThrow()

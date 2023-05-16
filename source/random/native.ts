@@ -1,10 +1,11 @@
 /**
- * Generates a random number between 1 and `limit`, inclusive.
- * Using xorshift128+ PRNG
  *
- * @param limit - The maximum value that can be returned.
+ * Generates a random number between min and max, inclusive.
+ * Uses xorshift128+ PRNG.
  *
+ * @param max - The maximum value that can be returned.
+ * @param min - The minimum value that can be returned (default: 1).
  */
-export const rand = (limit: number): number => {
-  return 1 + Math.floor(Math.random() * limit)
+export const rand = (max: number, min = 1): number => {
+  return min + Math.floor(Math.random() * max)
 }

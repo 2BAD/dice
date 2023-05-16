@@ -9,10 +9,13 @@ import { rand } from '~/random/native'
  */
 
 export const roll = (shape: string): number => {
-  const { dices, sides } = parse(shape)
-  return dices === 1
-    ? rand(sides)
+  const { dices, sides, modifier, separator } = parse(shape)
+  const min = separator === 'z' ? 0 : 1
+  const max = separator === 'z' ? sides - 1 : sides
+
+  return modifier + dices === 1
+    ? rand(max, min)
     : Array(dices)
         .fill(null)
-        .reduce((sum: number) => sum + rand(sides), 0)
+        .reduce((sum: number) => sum + rand(max, min), 0)
 }
