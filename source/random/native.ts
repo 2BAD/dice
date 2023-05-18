@@ -1,5 +1,4 @@
 /**
- *
  * Generates a random number between min and max, inclusive.
  * Uses xorshift128+ PRNG.
  *

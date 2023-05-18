@@ -1,21 +1,28 @@
 import { parse } from '~/parser'
 import { rand } from '~/random/native'
+import { sum } from '~/utils/array'
+import { type Dice } from '~/type'
 
 /**
- * Generate dice rolls based on the provided shape.
+ * Roll number of dice based on the provided notation and return the sum of all rolls.
  *
- * @param shape - The string representing the shape of the dice to be rolled. Ex: "2d6", "3d8", "1d20".
- *
+ * @param notation - The string representing the notation of the dice to be rolled. Ex: "2d6", "3d8", "1d20".
  */
+export const roll = (notation: string): number => {
+  return compute(parse(notation)).reduce(sum, 0)
+}
 
-export const roll = (shape: string): number => {
-  const { dices, sides, modifier, separator } = parse(shape)
+/**
+ * Generate an array of random numbers based on the provided dice parameters.
+ *
+ * @param Dice - A Dice object containing the dices, separator, sides and modifier properties.
+ *                      Ex: { dices: 2, separator: "d", sides: 6, modifier: 0 }
+ */
+export const compute = ({ dices, separator, sides, modifier }: Dice): number[] => {
   const min = separator === 'z' ? 0 : 1
   const max = separator === 'z' ? sides - 1 : sides
 
-  return modifier + dices === 1
-    ? rand(max, min)
-    : Array(dices)
-        .fill(null)
-        .reduce((sum: number) => sum + rand(max, min), 0)
+  return Array(dices)
+    .fill(null)
+    .map(() => rand(max, min) + modifier)
 }
