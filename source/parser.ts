@@ -8,7 +8,7 @@ import { type Dice } from '~/type'
  * @throws Throws an error when it is not possible to parse the dice shape string.
  */
 
-const regex = /^(?:(?<dices>\d+)|)(?<separator>d|z)(?<sides>[1-9]\d*)(?<modifiers>(?:[-+]\d+)*)?$/i
+const regex = /^(?:(?<dice>\d+)|)(?<separator>d|z)(?<sides>[1-9]\d*)(?<modifiers>(?:[-+]\d+)*)?$/i
 
 export const parse = (shape: string): Dice => {
   const match = regex.exec(shape.toLowerCase())
@@ -17,12 +17,12 @@ export const parse = (shape: string): Dice => {
   }
 
   const { separator } = match.groups as { separator: 'd' | 'z' }
-  const { dices: dicesStr, sides: sidesStr } = match.groups
-  const dices = parseInt(dicesStr ?? '1', 10)
+  const { dice: diceStr, sides: sidesStr } = match.groups
+  const dice = parseInt(diceStr ?? '1', 10)
   const sides = parseInt(sidesStr ?? '', 10)
 
   const modifiersStr = match.groups['modifiers'] ?? ''
   const modifier = modifiersStr.match(/([-+]\d+)/g)?.reduce((a, c) => a + parseInt(c), 0) ?? 0
 
-  return { dices, sides, modifier, separator }
+  return { dice, sides, modifier, separator }
 }

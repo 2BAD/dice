@@ -15,14 +15,14 @@ export const roll = (notation: string): number => {
 /**
  * Generate an array of random numbers based on the provided dice parameters.
  *
- * @param Dice - A Dice object containing the dices, separator, sides and modifier properties.
- *                      Ex: { dices: 2, separator: "d", sides: 6, modifier: 0 }
+ * @param Dice - A Dice object containing the dice, separator, sides and modifier properties.
+ *                      Ex: { dice: 2, separator: "d", sides: 6, modifier: 0 }
  */
-export const compute = ({ dices, separator, sides, modifier }: Dice): number[] => {
+export const compute = ({ dice, separator, sides, modifier }: Dice): number[] => {
   const min = separator === 'z' ? 0 : 1
   const max = separator === 'z' ? sides - 1 : sides
 
-  return Array(dices)
+  return Array(dice)
     .fill(null)
     .map(() => rand(max, min) + modifier)
 }

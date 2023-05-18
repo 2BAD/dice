@@ -2,15 +2,15 @@ import { parse, type Dice } from './parser'
 
 describe('parse', () => {
   const validInputs: Array<{ input: string; expected: Dice }> = [
-    { input: 'z6', expected: { dices: 1, sides: 6, modifier: 0, separator: 'z' } },
-    { input: 'd6', expected: { dices: 1, sides: 6, modifier: 0, separator: 'd' } },
-    { input: '1d6', expected: { dices: 1, sides: 6, modifier: 0, separator: 'd' } },
-    { input: '3z8', expected: { dices: 3, sides: 8, modifier: 0, separator: 'z' } },
-    { input: 'D6', expected: { dices: 1, sides: 6, modifier: 0, separator: 'd' } },
-    { input: '4d12', expected: { dices: 4, sides: 12, modifier: 0, separator: 'd' } },
-    { input: 'd6+1', expected: { dices: 1, sides: 6, modifier: 1, separator: 'd' } },
-    { input: 'd6+1-1', expected: { dices: 1, sides: 6, modifier: 0, separator: 'd' } },
-    { input: 'd6-2-2', expected: { dices: 1, sides: 6, modifier: -4, separator: 'd' } }
+    { input: 'z6', expected: { dice: 1, sides: 6, modifier: 0, separator: 'z' } },
+    { input: 'd6', expected: { dice: 1, sides: 6, modifier: 0, separator: 'd' } },
+    { input: '1d6', expected: { dice: 1, sides: 6, modifier: 0, separator: 'd' } },
+    { input: '3z8', expected: { dice: 3, sides: 8, modifier: 0, separator: 'z' } },
+    { input: 'D6', expected: { dice: 1, sides: 6, modifier: 0, separator: 'd' } },
+    { input: '4d12', expected: { dice: 4, sides: 12, modifier: 0, separator: 'd' } },
+    { input: 'd6+1', expected: { dice: 1, sides: 6, modifier: 1, separator: 'd' } },
+    { input: 'd6+1-1', expected: { dice: 1, sides: 6, modifier: 0, separator: 'd' } },
+    { input: 'd6-2-2', expected: { dice: 1, sides: 6, modifier: -4, separator: 'd' } }
   ]
 
   test.each(validInputs)(

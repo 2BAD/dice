@@ -1,6 +1,6 @@
 export type Dice = {
   sides: number
-  dices: number
+  dice: number
   modifier: number
   separator: 'd' | 'z'
 }
