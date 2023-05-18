@@ -1,28 +1,28 @@
-import { type Dice } from '~/type'
+import { type RollSpec } from '~/type'
 
 /**
- * Parses a string representing the shape of a dice and returns an object
+ * Parses a string representing the dice notation and returns an object
  * with the number of dice, number of sides per die, and sum of any modifiers.
  *
- * @param shape - The string representing the shape of the dice to be parsed. Ex: "2d6", "3d8", "1d20".
+ * @param notation - The dice notation string to be parsed. Ex: "2d6", "3d8", "1d20".
  * @throws Throws an error when it is not possible to parse the dice shape string.
  */
 
-const regex = /^(?:(?<dice>\d+)|)(?<separator>d|z)(?<sides>[1-9]\d*)(?<modifiers>(?:[-+]\d+)*)?$/i
+const regex = /^(?:(?<quantity>\d+)|)(?<separator>d|z)(?<sides>[1-9]\d*)(?<modifiers>(?:[-+]\d+)*)?$/i
 
-export const parse = (shape: string): Dice => {
-  const match = regex.exec(shape.toLowerCase())
+export const parse = (notation: string): RollSpec => {
+  const match = regex.exec(notation.toLowerCase())
   if (match?.groups == null) {
-    throw new Error(`Invalid dice shape '${shape}'`)
+    throw new Error(`Invalid dice notation '${notation}'`)
   }
 
   const { separator } = match.groups as { separator: 'd' | 'z' }
-  const { dice: diceStr, sides: sidesStr } = match.groups
-  const dice = parseInt(diceStr ?? '1', 10)
+  const { quantity: quantityStr, sides: sidesStr } = match.groups
+  const quantity = parseInt(quantityStr ?? '1', 10)
   const sides = parseInt(sidesStr ?? '', 10)
 
   const modifiersStr = match.groups['modifiers'] ?? ''
   const modifier = modifiersStr.match(/([-+]\d+)/g)?.reduce((a, c) => a + parseInt(c), 0) ?? 0
 
-  return { dice, sides, modifier, separator }
+  return { quantity, sides, modifier, separator }
 }

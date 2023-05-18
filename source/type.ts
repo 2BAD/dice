@@ -1,6 +1,6 @@
-export type Dice = {
+export type RollSpec = {
   sides: number
-  dice: number
+  quantity: number
   modifier: number
   separator: 'd' | 'z'
 }
