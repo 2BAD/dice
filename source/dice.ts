@@ -1,7 +1,7 @@
 import { parse } from '~/parser'
 import { rand } from '~/random/native'
-import { type RollSpec } from '~/type'
-import { sum } from '~/utils/array'
+import { type RollResult, type RollSpec } from '~/type'
+import { sortAsc, sortDesc, sum } from '~/utils/array'
 
 /**
  * Roll number of dice based on the provided notation and return the sum of all rolls.
@@ -25,4 +25,31 @@ export const compute = ({ quantity, separator, sides, modifier }: RollSpec): num
   return Array(quantity)
     .fill(null)
     .map(() => rand(max, min) + modifier)
+}
+
+/**
+ * A factory function for creating dice rolls.
+ *
+ * @param notation The notation string representing the type of roll to create, e.g. "2d6+3".
+ * @returns An object with methods and properties representing the result of a dice roll.
+ */
+export const Roll = (notation: string): RollResult => {
+  const spec = parse(notation)
+  const rolls = compute(spec)
+
+  return {
+    values: rolls,
+    get sum(): number {
+      return rolls.reduce(sum, 0)
+    },
+    get min(): number {
+      return rolls.sort(sortAsc)[0] ?? 0
+    },
+    get max(): number {
+      return rolls.sort(sortDesc)[0] ?? 0
+    },
+    get isCritical(): boolean {
+      return rolls.includes(1) || rolls.includes(20)
+    }
+  }
 }
