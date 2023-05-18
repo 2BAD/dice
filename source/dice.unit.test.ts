@@ -28,7 +28,7 @@ describe('dice', () => {
 
       const result = roll('2d6')
 
-      expect(result).toEqual(8)
+      expect(result).toStrictEqual(8)
       expect(spy).toHaveBeenCalledTimes(2)
     })
 
@@ -43,11 +43,11 @@ describe('dice', () => {
 
     it('should throw an error when given an invalid dice string', () => {
       const shape = 'invalid'
-      expect(() => roll(shape)).toThrow()
+      expect(() => roll(shape)).toThrow(`Invalid dice notation '${shape}'`)
     })
   })
 
-  describe('Roll', () => {
+  describe('roll factory', () => {
     describe('sum', () => {
       it('should correctly calculate the sum of the rolls', () => {
         const roll = Roll('2d6')
@@ -87,21 +87,21 @@ describe('dice', () => {
         vi.spyOn(random, 'rand').mockReturnValueOnce(20)
 
         const roll = Roll('1d20')
-        expect(roll.isCritical).toBe(true)
+        expect(roll.isCritical).toBeTruthy()
       })
 
       it('should return true if a critical roll was made with nat 1', () => {
         vi.spyOn(random, 'rand').mockReturnValueOnce(1)
 
         const roll = Roll('1d20')
-        expect(roll.isCritical).toBe(true)
+        expect(roll.isCritical).toBeTruthy()
       })
 
       it('should return false if a critical roll was not made', () => {
         vi.spyOn(random, 'rand').mockReturnValueOnce(2)
 
         const roll = Roll('1d20')
-        expect(roll.isCritical).toBe(false)
+        expect(roll.isCritical).toBeFalsy()
       })
     })
   })
