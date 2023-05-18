@@ -1,9 +1,4 @@
-export type Dice = {
-  sides: number
-  dices: number
-  modifier: number
-  separator: 'd' | 'z'
-}
+import { type Dice } from '~/type'
 
 /**
  * Parses a string representing the shape of a dice and returns an object
