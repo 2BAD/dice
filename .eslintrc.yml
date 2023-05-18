@@ -23,6 +23,7 @@ extends:
   - 'plugin:n/recommended'
   - 'plugin:prettier/recommended'
   - 'plugin:jsdoc/recommended-typescript-error'
+  - 'plugin:vitest/all'
 
 settings:
   import/resolver:
@@ -41,3 +42,4 @@ rules:
   'jsdoc/require-param': ['error', checkDestructured: false]
   'jsdoc/check-param-names': ['error', checkDestructured: false]
   'jsdoc/tag-lines': ['error', 'any', startLines: 1]
+  'vitest/no-hooks': ['error', 'allow': ['afterEach']]
