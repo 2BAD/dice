@@ -1,5 +1,7 @@
 import { type RollSpec } from '~/type'
 
+const regex = /^(?:(?<quantity>\d+)|)(?<separator>d|z)(?<sides>[1-9]\d*)(?<modifiers>(?:[-+]\d+)*)?$/i
+
 /**
  * Parses a string representing the dice notation and returns an object
  * with the number of dice, number of sides per die, and sum of any modifiers.
@@ -7,8 +9,6 @@ import { type RollSpec } from '~/type'
  * @param notation - The dice notation string to be parsed. Ex: "2d6", "3d8", "1d20".
  * @throws Throws an error when it is not possible to parse the dice shape string.
  */
-
-const regex = /^(?:(?<quantity>\d+)|)(?<separator>d|z)(?<sides>[1-9]\d*)(?<modifiers>(?:[-+]\d+)*)?$/i
 
 export const parse = (notation: string): RollSpec => {
   const match = regex.exec(notation.toLowerCase())
