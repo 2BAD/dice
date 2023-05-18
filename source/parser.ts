@@ -23,8 +23,8 @@ export const parse = (shape: string): Dice => {
 
   const { separator } = match.groups as { separator: 'd' | 'z' }
   const { dices: dicesStr, sides: sidesStr } = match.groups
-  const dices = parseInt(dicesStr ?? '1')
-  const sides = parseInt(sidesStr ?? '')
+  const dices = parseInt(dicesStr ?? '1', 10)
+  const sides = parseInt(sidesStr ?? '', 10)
 
   const modifiersStr = match.groups['modifiers'] ?? ''
   const modifier = modifiersStr.match(/([-+]\d+)/g)?.reduce((a, c) => a + parseInt(c), 0) ?? 0
