@@ -3,6 +3,7 @@
   "version": "0.0.3",
   "description": "Compute dice rolls according to RPG dice notation (e.g. 1d4, d6, 2d6+5, 1d20-1)",
   "keywords": [
+    "tabletop",
     "d20",
     "dice",
     "dnd",
@@ -39,8 +40,8 @@
     "clean": "rimraf build",
     "compile": "tsc --project tsconfig.build.json",
     "fix-alias": "tsc-alias -p tsconfig.build.json",
-    "format:check": "prettier --check source/**/*.ts",
-    "format:fix": "prettier --write source/**/*.ts",
+    "format:check": "prettier --check \"source/**/*.ts\"",
+    "format:fix": "prettier --write \"source/**/*.ts\"",
     "lint:fix": "run-s \"lint -- --fix\"",
     "lint": "eslint . --ext .ts",
     "prepublishOnly": "run-s clean build",
