@@ -6,7 +6,7 @@
 [![Code coverage](https://img.shields.io/codecov/c/github/2BAD/dice)](https://codecov.io/gh/2BAD/dice)
 [![Written in TypeScript](https://img.shields.io/github/languages/top/2BAD/dice)](https://github.com/2BAD/dice/search?l=typescript)
 
-This is a TypeScript library designed to facilitate the computation of dice rolls and random number generation. With support for various types and quantities of dice, it allows users to easily perform calculations for use in games, simulations, and other applications. Its RPG dice notation parsing capabilities allow users to roll based on specific game rules (e.g., `1d4`, `d6`, `2d6+5`, `1d20-1`). Whether building a character generator for a tabletop RPG or developing a gaming application, this utility library is an essential tool for any developer.
+This library makes it easy to compute dice rolls and generate random numbers. Ideal for games, simulations, and more, it supports different types and amounts of dice. You can easily perform calculations using RPG-style dice notation like `1d4`, `d6`, `2d6+5`, `1d20-1`.
 
 ## Install
 
@@ -35,15 +35,15 @@ roll('2d20').
 
 ## Dice-Rolling with Modifier
 
-In addition to rolling a single die or multiple dice, this dice-rolling program can also handle modifiers. A modifier is a number added to or subtracted from the total value obtained from the dice rolls. For instance, in DnD, instead of just rolling a 20-sided die (d20), you might also add a modifier to reflect a character's skill or level.
+In addition to rolling a single die or multiple dice, it can also handle roll modifiers. A modifier is a number added to or subtracted from the total value obtained from the dice rolls. For instance, in DnD, instead of just rolling a 20-sided die (d20), you might also add a modifier to reflect a character's skill or level.
 
-To roll a dice with a modifier, simply include a plus (+) or minus (-) sign and another integer at the end of your dice-roll string. Here are some examples:
+To roll a dice with a modifier, just include a plus (+) or minus (-) sign and another integer at the end of your dice-roll string. Here are some examples:
 
 - 2d6+3: Roll two six-sided dice and add 3 to the total value.
 - d20-1: Roll a single 20-sided die and subtract 1 from the total value.
 - 3d8+12: Roll three eight-sided dice and add 12 to the total value.
 
-Note that the modifier applies to the entire result of the dice roll, not each individual die roll. When using a modifier, it's important to check the rules of your game system to determine which calculations are appropriate.
+Note that the modifier applies to the entire result of the dice roll, not the individual die roll. When using a modifier, it's important to check the rules of your game system to determine which calculations are appropriate.
 
 ## Backus–Naur form grammar for dice roll string syntax
 
@@ -56,7 +56,7 @@ Note that the modifier applies to the entire result of the dice roll, not each i
 <non-zero-digit>  ::= "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9"
 ```
 
-This BNF grammar defines the syntax for a dice notation, which consists of a optional non-zero number of dice to be rolled and a number of sides each die has, optionally followed by a modifier that can be added to or subtracted from the result of the roll.
+This BNF grammar defines the syntax for a dice notation, which consists of an optional non-zero number of dice to be rolled and a number of sides each die has, optionally followed by a modifier that can be added to or subtracted from the result of the roll.
 
 ## Contributing
 
