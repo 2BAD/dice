@@ -28,6 +28,8 @@ rules:
   '@typescript-eslint/non-nullable-type-assertion-style': 'off'
   '@typescript-eslint/promise-function-async': 'off'
   '@typescript-eslint/strict-boolean-expressions': ['error', allowNullableObject: true]
+  '@typescript-eslint/space-before-function-paren': 'off'
+  '@typescript-eslint/member-delimiter-style': 'off'
   'import/no-default-export': 'error'
   'import/no-unresolved': 'error'
   'jsdoc/check-param-names': ['error', checkDestructured: false]

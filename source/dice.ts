@@ -30,7 +30,7 @@ export const compute = ({ quantity, separator, sides, modifier }: RollSpec): num
 /**
  * A factory function for creating dice rolls.
  *
- * @param notation The notation string representing the type of roll to create, e.g. "2d6+3".
+ * @param notation - The notation string representing the type of roll to create, e.g. "2d6+3".
  * @returns An object with methods and properties representing the result of a dice roll.
  */
 export const Roll = (notation: string): RollResult => {
@@ -39,15 +39,27 @@ export const Roll = (notation: string): RollResult => {
 
   return {
     values: rolls,
+    /**
+     * The sum of all dice rolls.
+     */
     get sum(): number {
       return rolls.reduce(sum, 0)
     },
+    /**
+     * The min value of all dice rolls.
+     */
     get min(): number {
       return rolls.sort(sortAsc)[0] ?? 0
     },
+    /**
+     * The max value of all dice rolls.
+     */
     get max(): number {
       return rolls.sort(sortDesc)[0] ?? 0
     },
+    /**
+     * Is any of the dice rolls a critical hit or a critical failure.
+     */
     get isCritical(): boolean {
       return rolls.includes(1) || rolls.includes(20)
     }

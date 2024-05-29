@@ -16,8 +16,10 @@ describe('parse', () => {
   ]
 
   it.each(validInputs)(
-    `should return the correct Dice object when passed a valid shape - '%j'`,
+    "should return the correct Dice object when passed a valid shape - '%j'",
     ({ input, expected }) => {
+      expect.assertions(1)
+
       const actual = parse(input)
       expect(actual).toStrictEqual(expected)
     }
@@ -25,7 +27,9 @@ describe('parse', () => {
 
   const invalidInputs = ['', 'd', '4', '1dx', 'xd1', '-2d10', 'd-1', '2d0', '2d6d', '3d+2']
 
-  it.each(invalidInputs)(`should throw an error when passed an invalid shape - '%s'`, (input) => {
+  it.each(invalidInputs)("should throw an error when passed an invalid shape - '%s'", (input) => {
+    expect.assertions(1)
+
     expect(() => parse(input)).toThrow(`Invalid dice notation '${input}'`)
   })
 })

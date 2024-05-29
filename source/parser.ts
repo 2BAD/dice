@@ -9,7 +9,6 @@ const regex = /^(?:(?<quantity>\d+)|)(?<separator>d|z)(?<sides>[1-9]\d*)(?<modif
  * @param notation - The dice notation string to be parsed. Ex: "2d6", "3d8", "1d20".
  * @throws Throws an error when it is not possible to parse the dice shape string.
  */
-
 export const parse = (notation: string): RollSpec => {
   const match = regex.exec(notation.toLowerCase())
   if (match?.groups == null) {
