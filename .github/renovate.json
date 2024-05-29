@@ -1,19 +1,4 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": [
-    "config:base",
-    "schedule:weekly",
-    "group:allNonMajor",
-    ":pinAllExceptPeerDependencies",
-    ":semanticCommitTypeAll(package)",
-    ":semanticCommitScopeDisabled"
-  ],
-  "rebaseWhen": "behind-base-branch",
-  "packageRules": [
-    {
-      "matchUpdateTypes": ["minor", "patch"],
-      "matchDepTypes": ["devDependencies"],
-      "automerge": true
-    }
-  ]
+  "extends": ["github>2bad/renovate-config:default"]
 }
