@@ -1,3 +1,4 @@
+import { afterEach, describe, expect, it, vi } from 'vitest'
 import { Roll, roll } from '~/dice.ts'
 import * as parser from '~/parser.ts'
 import * as random from '~/random/native.ts'

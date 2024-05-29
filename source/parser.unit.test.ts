@@ -1,3 +1,4 @@
+import { describe, expect, it } from 'vitest'
 import { parse } from '~/parser.ts'
 import { type RollSpec } from '~/type.ts'
 
