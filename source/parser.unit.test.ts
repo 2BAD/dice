@@ -1,5 +1,5 @@
-import { parse } from '~/parser'
-import { type RollSpec } from '~/type'
+import { parse } from '~/parser.ts'
+import { type RollSpec } from '~/type.ts'
 
 describe('parse', () => {
   const validInputs: Array<{ input: string; expected: RollSpec }> = [

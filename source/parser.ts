@@ -1,4 +1,4 @@
-import { type RollSpec } from '~/type'
+import { type RollSpec } from '~/type.ts'
 
 const regex = /^(?:(?<quantity>\d+)|)(?<separator>d|z)(?<sides>[1-9]\d*)(?<modifiers>(?:[-+]\d+)*)?$/i
 

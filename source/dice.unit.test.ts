@@ -1,6 +1,6 @@
-import { Roll, roll } from '~/dice'
-import * as parser from '~/parser'
-import * as random from '~/random/native'
+import { Roll, roll } from '~/dice.ts'
+import * as parser from '~/parser.ts'
+import * as random from '~/random/native.ts'
 
 describe('dice', () => {
   afterEach(() => {

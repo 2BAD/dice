@@ -1,7 +1,7 @@
-import { parse } from '~/parser'
-import { rand } from '~/random/native'
-import { type RollResult, type RollSpec } from '~/type'
-import { sortAsc, sortDesc, sum } from '~/utils/array'
+import { parse } from '~/parser.ts'
+import { rand } from '~/random/native.ts'
+import { type RollResult, type RollSpec } from '~/type.ts'
+import { sortAsc, sortDesc, sum } from '~/utils/array.ts'
 
 /**
  * Roll number of dice based on the provided notation and return the sum of all rolls.
