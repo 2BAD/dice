@@ -61,15 +61,15 @@
   },
   "devDependencies": {
     "@2bad/tsconfig": "3.0.1",
-    "@swc/cli": "0.7.7",
-    "@swc/core": "1.12.9",
-    "@types/node": "20.19.4",
+    "@swc/cli": "0.7.8",
+    "@swc/core": "1.13.1",
+    "@types/node": "20.19.9",
     "@vitest/coverage-v8": "2.1.9",
     "eslint-config-love": "46.0.0",
-    "eslint-config-prettier": "9.1.0",
+    "eslint-config-prettier": "9.1.2",
     "eslint-import-resolver-typescript": "3.10.1",
     "eslint-plugin-jsdoc": "48.11.0",
-    "eslint-plugin-prettier": "5.5.1",
+    "eslint-plugin-prettier": "5.5.3",
     "eslint-plugin-vitest": "0.5.4",
     "npm-run-all2": "6.2.6",
     "prettier": "3.6.2",
@@ -84,7 +84,7 @@
     "node": ">=20"
   },
   "volta": {
-    "node": "20.19.3",
+    "node": "20.19.4",
     "npm": "10.9.3"
   }
 }
