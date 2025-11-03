@@ -60,10 +60,10 @@
     "pure-rand": "6.1.0"
   },
   "devDependencies": {
-    "@2bad/tsconfig": "3.0.1",
+    "@2bad/tsconfig": "3.0.2",
     "@swc/cli": "0.7.8",
-    "@swc/core": "1.13.5",
-    "@types/node": "20.19.23",
+    "@swc/core": "1.14.0",
+    "@types/node": "20.19.24",
     "@vitest/coverage-v8": "2.1.9",
     "eslint-config-love": "46.0.0",
     "eslint-config-prettier": "9.1.2",
@@ -73,7 +73,7 @@
     "eslint-plugin-vitest": "0.5.4",
     "npm-run-all2": "6.2.6",
     "prettier": "3.6.2",
-    "rimraf": "6.0.1",
+    "rimraf": "6.1.0",
     "tsc-alias": "1.8.16",
     "typescript": "5.9.3",
     "vite-tsconfig-paths": "4.3.2",
