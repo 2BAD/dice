@@ -62,7 +62,7 @@
   "devDependencies": {
     "@2bad/tsconfig": "3.0.2",
     "@swc/cli": "0.7.9",
-    "@swc/core": "1.15.2",
+    "@swc/core": "1.15.3",
     "@types/node": "20.19.25",
     "@vitest/coverage-v8": "2.1.9",
     "eslint-config-love": "46.0.0",
@@ -73,7 +73,7 @@
     "eslint-plugin-vitest": "0.5.4",
     "npm-run-all2": "6.2.6",
     "prettier": "3.6.2",
-    "rimraf": "6.1.0",
+    "rimraf": "6.1.2",
     "tsc-alias": "1.8.16",
     "typescript": "5.9.3",
     "vite-tsconfig-paths": "4.3.2",
