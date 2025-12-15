@@ -63,7 +63,7 @@
     "@2bad/tsconfig": "3.0.2",
     "@swc/cli": "0.7.9",
     "@swc/core": "1.15.3",
-    "@types/node": "20.19.25",
+    "@types/node": "20.19.26",
     "@vitest/coverage-v8": "2.1.9",
     "eslint-config-love": "46.0.0",
     "eslint-config-prettier": "9.1.2",
