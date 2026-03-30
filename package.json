@@ -62,7 +62,7 @@
   "devDependencies": {
     "@2bad/tsconfig": "3.0.2",
     "@swc/cli": "0.8.0",
-    "@swc/core": "1.15.18",
+    "@swc/core": "1.15.21",
     "@types/node": "20.19.37",
     "@vitest/coverage-v8": "2.1.9",
     "eslint-config-love": "46.0.0",
@@ -84,7 +84,7 @@
     "node": ">=20"
   },
   "volta": {
-    "node": "20.20.1",
+    "node": "20.20.2",
     "npm": "10.9.7"
   }
 }
