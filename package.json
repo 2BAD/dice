@@ -79,12 +79,12 @@
     "vite-tsconfig-paths": "4.3.2",
     "vitest": "2.1.9"
   },
-  "packageManager": "npm@10.9.10",
+  "packageManager": "npm@10.9.11",
   "engines": {
     "node": ">=20"
   },
   "volta": {
     "node": "20.20.2",
-    "npm": "10.9.10"
+    "npm": "10.9.11"
   }
 }
